@@ -183,6 +183,5 @@ All brand assets, product names, copy and design are original work.
 
 ## Contact
 
-Built with intention by **[Your Name]**
-Portfolio: [your-portfolio-link]
-Contra: [your-contra-link]
+Built with intention by **[Koketso Matobako]**
+
