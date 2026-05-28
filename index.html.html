@@ -1,0 +1,2555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noir Collective — Hair Care Rooted in Truth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────────
+   RESET & BASE
+───────────────────────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{font-family:'Jost',sans-serif;background:#fff;color:#1a1a1a;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+button{cursor:pointer;border:none;background:none;font-family:inherit;}
+
+/* ─────────────────────────────────────────────
+   CSS VARIABLES
+───────────────────────────────────────────── */
+:root{
+  /* Women */
+  --w-bg:#ffffff;
+  --w-text:#1a1a1a;
+  --w-accent:#6B1A2A;
+  --w-gold:#C4A882;
+  --w-light:#f7f7f7;
+
+  /* Men */
+  --m-bg:#111418;
+  --m-text:#e8dcc8;
+  --m-accent:#B69057;
+  --m-deep:#1E2228;
+  --m-steel:#2C3540;
+
+  /* Kids */
+  --k-bg:#FDF8F5;
+  --k-text:#3a2820;
+  --k-accent:#C2785A;
+  --k-blush:#F0C8B0;
+  --k-sand:#E8D5C4;
+
+  /* Shared */
+  --noir:#0a0a0a;
+  --transition:0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+/* ─────────────────────────────────────────────
+   SCROLLBAR
+───────────────────────────────────────────── */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:#f0f0f0;}
+::-webkit-scrollbar-thumb{background:#C4A882;}
+
+/* ─────────────────────────────────────────────
+   NAV
+───────────────────────────────────────────── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 60px;
+  transition:background var(--transition),padding var(--transition);
+}
+.nav.scrolled{
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(20px);
+  padding:14px 60px;
+  border-bottom:1px solid rgba(0,0,0,0.06);
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:500;letter-spacing:3px;
+  color:#fff;
+  transition:color var(--transition);
+  display:flex;flex-direction:column;align-items:flex-start;gap:0px;
+  line-height:1;
+}
+.nav.scrolled .nav-logo{color:#1a1a1a;}
+.nav-logo span{
+  display:block;font-size:7px;font-family:'Jost',sans-serif;
+  font-weight:300;letter-spacing:6px;color:rgba(255,255,255,0.6);
+  text-transform:uppercase;margin-top:4px;
+}
+.nav.scrolled .nav-logo span{color:#999;}
+.nav-links{display:flex;gap:36px;align-items:center;}
+.nav-links a{
+  font-size:10px;font-weight:300;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,0.8);transition:color var(--transition);
+}
+.nav.scrolled .nav-links a{color:#666;}
+.nav-links a:hover{color:#fff;}
+.nav.scrolled .nav-links a:hover{color:var(--w-accent);}
+.nav-cart{
+  display:flex;align-items:center;gap:6px;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,0.8);
+  transition:color var(--transition);
+  position:relative;
+}
+.nav.scrolled .nav-cart{color:#666;}
+.cart-count{
+  position:absolute;top:-8px;right:-12px;
+  background:var(--w-accent);color:#fff;
+  width:16px;height:16px;border-radius:50%;
+  font-size:8px;display:flex;align-items:center;justify-content:center;
+  font-weight:500;
+}
+.nav-mobile-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.nav-mobile-toggle span{display:block;width:24px;height:1px;background:#fff;transition:all 0.3s;}
+.nav.scrolled .nav-mobile-toggle span{background:#1a1a1a;}
+
+/* ─────────────────────────────────────────────
+   HERO
+───────────────────────────────────────────── */
+.hero{
+  height:100vh;min-height:700px;
+  background:linear-gradient(160deg,#0d0d0d 0%,#1a0a10 50%,#0d0d0d 100%);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.hero-bg-texture{
+  position:absolute;inset:0;
+  background-image:radial-gradient(ellipse at 20% 50%,rgba(107,26,42,0.18) 0%,transparent 60%),
+    radial-gradient(ellipse at 80% 20%,rgba(196,168,130,0.1) 0%,transparent 50%);
+}
+.hero-grain{
+  position:absolute;inset:0;opacity:0.04;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+.hero-line-left{
+  position:absolute;left:60px;top:0;bottom:0;width:1px;
+  background:linear-gradient(to bottom,transparent,rgba(196,168,130,0.3),transparent);
+}
+.hero-line-right{
+  position:absolute;right:60px;top:0;bottom:0;width:1px;
+  background:linear-gradient(to bottom,transparent,rgba(107,26,42,0.3),transparent);
+}
+.hero-content{text-align:center;position:relative;z-index:2;padding:0 40px;}
+.hero-eyebrow{
+  font-size:9px;font-weight:300;letter-spacing:8px;text-transform:uppercase;
+  color:var(--w-gold);margin-bottom:28px;
+  opacity:0;animation:fadeUp 1s ease 0.3s forwards;
+}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(52px,8vw,110px);
+  font-weight:300;color:#fff;line-height:0.95;
+  letter-spacing:-1px;margin-bottom:28px;
+  opacity:0;animation:fadeUp 1s ease 0.6s forwards;
+}
+.hero-title em{font-style:italic;color:var(--w-gold);}
+.hero-title .line2{color:rgba(255,255,255,0.5);}
+.hero-sub{
+  font-size:12px;font-weight:300;letter-spacing:3px;color:rgba(255,255,255,0.5);
+  margin-bottom:56px;text-transform:uppercase;
+  opacity:0;animation:fadeUp 1s ease 0.9s forwards;
+}
+.hero-actions{
+  display:flex;gap:20px;justify-content:center;flex-wrap:wrap;
+  opacity:0;animation:fadeUp 1s ease 1.1s forwards;
+}
+.btn-primary{
+  padding:14px 44px;background:var(--w-accent);color:#fff;
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;font-weight:400;
+  transition:all var(--transition);border:1px solid var(--w-accent);
+}
+.btn-primary:hover{background:transparent;color:var(--w-accent);}
+.btn-outline{
+  padding:14px 44px;border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.7);
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;font-weight:300;
+  transition:all var(--transition);
+}
+.btn-outline:hover{border-color:#fff;color:#fff;}
+.hero-scroll{
+  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+  opacity:0;animation:fadeIn 1s ease 1.5s forwards;
+}
+.hero-scroll span{
+  font-size:8px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.3);
+}
+.scroll-line{
+  width:1px;height:50px;
+  background:linear-gradient(to bottom,rgba(196,168,130,0.5),transparent);
+  animation:scrollPulse 2s ease infinite;
+}
+
+/* ─────────────────────────────────────────────
+   SECTION BASE
+───────────────────────────────────────────── */
+.section{padding:100px 60px;}
+.section-eyebrow{
+  font-size:9px;font-weight:300;letter-spacing:6px;text-transform:uppercase;
+  color:var(--w-accent);margin-bottom:16px;
+}
+.section-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(36px,5vw,64px);font-weight:300;line-height:1.05;
+  letter-spacing:-0.5px;
+}
+.section-title em{font-style:italic;}
+.section-rule{
+  width:60px;height:1px;background:var(--w-gold);margin:28px 0;
+}
+
+/* ─────────────────────────────────────────────
+   RANGE TABS NAV
+───────────────────────────────────────────── */
+.range-nav{
+  position:sticky;top:56px;z-index:900;
+  background:#fff;border-bottom:1px solid #eee;
+  display:flex;align-items:center;justify-content:center;
+  gap:0;
+}
+.range-tab{
+  padding:20px 48px;font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  font-weight:300;color:#999;cursor:pointer;
+  border-bottom:2px solid transparent;transition:all 0.3s;
+  position:relative;
+}
+.range-tab.active{color:var(--w-text);border-bottom-color:var(--w-accent);}
+.range-tab.active.men-tab{border-bottom-color:var(--m-accent);color:var(--m-bg);}
+.range-tab.active.kids-tab{border-bottom-color:var(--k-accent);color:var(--k-text);}
+.range-tab:hover{color:var(--w-text);}
+
+/* ─────────────────────────────────────────────
+   RANGE PANELS
+───────────────────────────────────────────── */
+.range-panel{display:none;}
+.range-panel.active{display:block;}
+
+/* ─────────────────────────────────────────────
+   WOMEN'S RANGE
+───────────────────────────────────────────── */
+.women-hero{
+  background:#fff;
+  padding:100px 60px 60px;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  align-items:center;min-height:80vh;
+  position:relative;overflow:hidden;
+}
+.women-hero::before{
+  content:'';position:absolute;right:0;top:0;bottom:0;width:42%;
+  background:linear-gradient(135deg,#faf6f7 0%,#f5eced 100%);
+  z-index:0;
+}
+.women-hero-text{position:relative;z-index:1;}
+.women-hero-eyebrow{
+  font-size:9px;letter-spacing:6px;text-transform:uppercase;
+  color:var(--w-accent);font-weight:300;margin-bottom:20px;
+}
+.women-hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(40px,5vw,72px);font-weight:300;
+  color:var(--w-text);line-height:1;margin-bottom:24px;
+}
+.women-hero-title em{font-style:italic;color:var(--w-accent);}
+.women-hero-body{
+  font-size:13px;font-weight:300;color:#777;line-height:1.9;
+  max-width:420px;margin-bottom:36px;letter-spacing:0.3px;
+}
+.women-hero-image{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+}
+.product-img-placeholder{
+  border-radius:2px;overflow:hidden;position:relative;
+  background:linear-gradient(135deg,#f0f0f0,#e0e0e0);
+}
+.product-img-placeholder.tall{grid-row:span 2;}
+.product-img-inner{
+  width:100%;aspect-ratio:2/3;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:12px;padding:24px;
+  text-align:center;
+}
+.product-img-inner.tall{aspect-ratio:1/2;}
+.pimg-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:#999;margin-bottom:8px;
+}
+.pimg-name{
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:#555;font-weight:400;
+}
+.pimg-icon{font-size:32px;opacity:0.3;margin-bottom:4px;}
+
+/* Products grid */
+.products-section{padding:80px 60px;background:var(--w-light);}
+.products-header{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:56px;flex-wrap:wrap;gap:20px;
+}
+.products-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+}
+.product-card{
+  background:#fff;overflow:hidden;
+  transition:transform var(--transition);
+  position:relative;cursor:pointer;
+}
+.product-card:hover{transform:translateY(-6px);}
+.product-card:hover .product-card-overlay{opacity:1;}
+.product-img-area{
+  aspect-ratio:3/4;background:#f7f5f5;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.product-visual{
+  width:60%;height:75%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;
+}
+.product-visual-bottle{
+  width:50px;background:linear-gradient(180deg,#e8e0e0,#d5cece);
+  border-radius:4px 4px 2px 2px;position:relative;
+}
+.product-visual-label{
+  width:100%;background:rgba(255,255,255,0.9);
+  padding:8px 4px;text-align:center;margin-top:4px;
+}
+.product-visual-label span{
+  display:block;font-size:7px;letter-spacing:2px;text-transform:uppercase;color:#555;
+  font-family:'Jost',sans-serif;
+}
+.product-card-overlay{
+  position:absolute;inset:0;background:rgba(107,26,42,0.85);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity var(--transition);
+}
+.overlay-btn{
+  padding:12px 32px;border:1px solid rgba(255,255,255,0.6);
+  font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#fff;
+  font-weight:300;cursor:pointer;background:transparent;
+  transition:all 0.3s;
+}
+.overlay-btn:hover{background:#fff;color:var(--w-accent);}
+.product-info{padding:24px 24px 28px;}
+.product-range-tag{
+  font-size:8px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--w-accent);margin-bottom:8px;
+}
+.product-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:400;color:var(--w-text);
+  margin-bottom:6px;letter-spacing:0.5px;
+}
+.product-desc{
+  font-size:11px;font-weight:300;color:#888;line-height:1.7;
+  margin-bottom:16px;letter-spacing:0.3px;
+}
+.product-footer{
+  display:flex;align-items:center;justify-content:space-between;
+}
+.product-price{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:400;color:var(--w-text);
+}
+.add-btn{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--w-text);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;line-height:1;cursor:pointer;
+  transition:background var(--transition);
+}
+.add-btn:hover{background:var(--w-accent);}
+
+/* Bundle card */
+.bundle-card{
+  background:linear-gradient(135deg,#1a0a10,#2d0f1e);
+  color:#fff;padding:60px;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;
+  align-items:center;margin:2px 0;
+}
+.bundle-eyebrow{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--w-gold);margin-bottom:16px;}
+.bundle-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(32px,4vw,52px);font-weight:300;color:#fff;line-height:1.1;
+  margin-bottom:20px;
+}
+.bundle-title em{font-style:italic;color:var(--w-gold);}
+.bundle-desc{font-size:12px;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.9;margin-bottom:32px;}
+.bundle-price-row{display:flex;align-items:baseline;gap:16px;margin-bottom:28px;}
+.bundle-price{
+  font-family:'Cormorant Garamond',serif;
+  font-size:48px;font-weight:300;color:var(--w-gold);
+}
+.bundle-was{font-size:14px;color:rgba(255,255,255,0.3);text-decoration:line-through;}
+.bundle-savings{font-size:10px;letter-spacing:2px;color:var(--w-accent);text-transform:uppercase;}
+.bundle-items{display:flex;flex-direction:column;gap:12px;margin-bottom:36px;}
+.bundle-item{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:300;color:rgba(255,255,255,0.7);}
+.bundle-item::before{content:'';display:block;width:20px;height:1px;background:var(--w-gold);flex-shrink:0;}
+.bundle-visual{
+  display:flex;align-items:flex-end;justify-content:center;gap:16px;
+}
+.bv-product{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.bv-bottle{
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);
+  border-radius:4px;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;padding:20px 12px;width:70px;
+}
+.bv-bottle.tall{height:140px;}
+.bv-bottle.short{height:90px;width:80px;}
+.bv-label{font-size:7px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+.bv-name{font-size:8px;letter-spacing:1px;color:rgba(255,255,255,0.6);text-align:center;margin-top:6px;}
+
+/* Steps section */
+.steps-section{padding:100px 60px;background:#fff;}
+.steps-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  margin-top:60px;border:1px solid #eee;
+}
+.step-card{padding:48px 40px;position:relative;border-right:1px solid #eee;}
+.step-card:last-child{border-right:none;}
+.step-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:80px;font-weight:300;color:#f0f0f0;
+  line-height:1;margin-bottom:-20px;
+}
+.step-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;font-weight:400;color:var(--w-text);
+  margin-bottom:8px;
+}
+.step-phase{
+  font-size:8px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--w-accent);margin-bottom:16px;
+}
+.step-desc{font-size:12px;font-weight:300;color:#888;line-height:1.9;}
+.step-product-ref{
+  margin-top:20px;padding-top:20px;border-top:1px solid #f0f0f0;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#bbb;
+}
+
+/* ─────────────────────────────────────────────
+   MEN'S RANGE
+───────────────────────────────────────────── */
+.men-panel{background:var(--m-bg);}
+.men-hero{
+  min-height:80vh;padding:100px 60px 80px;
+  background:linear-gradient(135deg,var(--m-bg) 0%,#1a1f26 100%);
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  align-items:center;position:relative;overflow:hidden;
+}
+.men-hero::before{
+  content:'';position:absolute;top:0;right:0;
+  width:50%;height:100%;
+  background:linear-gradient(135deg,rgba(182,144,87,0.04),rgba(44,53,64,0.3));
+}
+.men-hero-eyebrow{font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--m-accent);font-weight:300;margin-bottom:20px;}
+.men-hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(40px,5vw,72px);font-weight:300;
+  color:var(--m-text);line-height:1;margin-bottom:24px;
+}
+.men-hero-title em{font-style:italic;color:var(--m-accent);}
+.men-hero-body{font-size:13px;font-weight:300;color:rgba(232,220,200,0.5);line-height:1.9;max-width:420px;margin-bottom:36px;}
+.men-product-stack{
+  display:flex;flex-direction:column;gap:0;position:relative;z-index:1;
+}
+.men-product-row{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  margin-top:2px;
+}
+.men-product-card{
+  background:var(--m-deep);padding:32px 24px;cursor:pointer;
+  transition:background var(--transition);position:relative;overflow:hidden;
+}
+.men-product-card::before{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--m-accent);transform:scaleX(0);
+  transform-origin:left;transition:transform var(--transition);
+}
+.men-product-card:hover{background:#1a1f26;}
+.men-product-card:hover::before{transform:scaleX(1);}
+.men-product-icon{font-size:28px;margin-bottom:16px;opacity:0.6;}
+.men-product-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;font-weight:400;color:var(--m-text);
+  margin-bottom:6px;
+}
+.men-product-desc{font-size:10px;font-weight:300;color:rgba(232,220,200,0.45);line-height:1.8;margin-bottom:16px;}
+.men-product-price{
+  font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--m-accent);
+}
+.men-add-btn{
+  position:absolute;top:24px;right:24px;
+  width:30px;height:30px;border-radius:50%;
+  border:1px solid rgba(182,144,87,0.3);color:var(--m-accent);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;cursor:pointer;transition:all 0.3s;background:transparent;
+}
+.men-add-btn:hover{background:var(--m-accent);color:var(--m-bg);border-color:var(--m-accent);}
+
+/* Men sections */
+.men-section-dark{background:var(--m-bg);padding:80px 60px;}
+.men-section-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(32px,4vw,52px);font-weight:300;color:var(--m-text);
+  margin-bottom:8px;
+}
+.men-section-title em{font-style:italic;color:var(--m-accent);}
+.men-section-eyebrow{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--m-accent);margin-bottom:16px;}
+.men-rule{width:50px;height:1px;background:var(--m-accent);margin:24px 0 48px;}
+
+/* ─────────────────────────────────────────────
+   KIDS RANGE
+───────────────────────────────────────────── */
+.kids-panel{background:var(--k-bg);}
+.kids-hero{
+  min-height:80vh;padding:100px 60px 80px;
+  background:linear-gradient(135deg,var(--k-bg) 0%,#fef4ee 100%);
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  align-items:center;position:relative;overflow:hidden;
+}
+.kids-hero::before{
+  content:'✦';position:absolute;right:80px;top:80px;
+  font-size:200px;color:rgba(194,120,90,0.05);
+  font-family:serif;
+}
+.kids-hero-eyebrow{font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--k-accent);font-weight:300;margin-bottom:20px;}
+.kids-hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(40px,5vw,72px);font-weight:300;
+  color:var(--k-text);line-height:1;margin-bottom:24px;
+}
+.kids-hero-title em{font-style:italic;color:var(--k-accent);}
+.kids-hero-body{font-size:13px;font-weight:300;color:#a08070;line-height:1.9;max-width:420px;margin-bottom:36px;}
+.kids-products-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  margin-top:2px;
+}
+.kids-product-card{
+  background:#fff;padding:32px 24px;cursor:pointer;
+  transition:all var(--transition);position:relative;
+}
+.kids-product-card:hover{background:var(--k-sand);}
+.kids-product-tag{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--k-accent);margin-bottom:8px;}
+.kids-product-name{
+  font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;
+  color:var(--k-text);margin-bottom:6px;
+}
+.kids-product-desc{font-size:10px;font-weight:300;color:#a08070;line-height:1.8;margin-bottom:16px;}
+.kids-product-footer{display:flex;align-items:center;justify-content:space-between;}
+.kids-product-price{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--k-text);}
+.kids-add-btn{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--k-accent);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;cursor:pointer;border:none;
+  transition:background 0.3s;
+}
+.kids-add-btn:hover{background:var(--k-text);}
+.kids-icon{font-size:28px;margin-bottom:14px;}
+
+/* ─────────────────────────────────────────────
+   ABOUT SECTION
+───────────────────────────────────────────── */
+.about-section{
+  padding:120px 60px;
+  background:linear-gradient(160deg,#0a0a0a 0%,#120810 100%);
+  position:relative;overflow:hidden;
+}
+.about-section::before{
+  content:'';position:absolute;left:0;top:0;right:0;bottom:0;
+  background:radial-gradient(ellipse at 30% 60%,rgba(107,26,42,0.15),transparent 60%),
+    radial-gradient(ellipse at 80% 20%,rgba(196,168,130,0.06),transparent 50%);
+}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:100px;
+  align-items:center;position:relative;z-index:1;
+  max-width:1200px;margin:0 auto;
+}
+.about-visual{position:relative;}
+.about-img-frame{
+  aspect-ratio:3/4;background:linear-gradient(135deg,#1a1a1a,#2a1520);
+  position:relative;overflow:hidden;
+  border:1px solid rgba(196,168,130,0.15);
+}
+.about-img-frame::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,rgba(107,26,42,0.2),transparent 70%);
+}
+.about-img-inner{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:20px;text-align:center;padding:40px;
+}
+.about-img-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px;font-weight:300;font-style:italic;
+  color:rgba(255,255,255,0.3);line-height:1.4;
+}
+.about-img-attribution{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(196,168,130,0.4);}
+.about-accent-box{
+  position:absolute;bottom:-20px;right:-20px;
+  width:120px;height:120px;background:var(--w-accent);
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+}
+.about-accent-box-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:11px;font-weight:300;font-style:italic;
+  color:rgba(255,255,255,0.7);text-align:center;line-height:1.5;
+}
+.about-text{}
+.about-eyebrow{font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--w-gold);margin-bottom:20px;font-weight:300;}
+.about-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(36px,4vw,58px);font-weight:300;color:#fff;line-height:1.05;
+  margin-bottom:28px;
+}
+.about-title em{font-style:italic;color:var(--w-gold);}
+.about-rule{width:50px;height:1px;background:var(--w-accent);margin-bottom:32px;}
+.about-body{font-size:13px;font-weight:300;color:rgba(255,255,255,0.55);line-height:2;margin-bottom:20px;}
+.about-body strong{color:rgba(255,255,255,0.8);font-weight:400;}
+.about-signature{
+  margin-top:40px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.08);
+}
+.signature-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;font-weight:300;font-style:italic;color:var(--w-gold);
+  margin-bottom:4px;
+}
+.signature-title{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.3);}
+
+/* ─────────────────────────────────────────────
+   SCALP CLOSE-UP SECTION
+───────────────────────────────────────────── */
+.ritual-section{
+  padding:0;position:relative;overflow:hidden;
+  background:#0a0a0a;
+}
+.ritual-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:600px;
+}
+.ritual-visual{
+  background:linear-gradient(135deg,#1a0a0a,#2d1520);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.ritual-visual::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 60% 40%,rgba(107,26,42,0.4),transparent 60%);
+}
+.ritual-droplets{
+  position:absolute;inset:0;pointer-events:none;
+}
+.droplet{
+  position:absolute;width:6px;height:10px;
+  background:rgba(196,168,130,0.3);border-radius:0 0 50% 50%;
+  animation:drip 3s ease-in infinite;
+}
+.droplet:nth-child(1){left:40%;top:-10px;animation-delay:0s;}
+.droplet:nth-child(2){left:55%;top:-10px;animation-delay:0.8s;}
+.droplet:nth-child(3){left:48%;top:-10px;animation-delay:1.6s;}
+.ritual-bottle-display{
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+}
+.ritual-bottle{
+  width:80px;height:200px;
+  background:linear-gradient(180deg,rgba(255,255,255,0.15),rgba(255,255,255,0.05));
+  border:1px solid rgba(255,255,255,0.2);border-radius:6px 6px 4px 4px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.ritual-bottle::before{
+  content:'';position:absolute;top:-16px;left:50%;transform:translateX(-50%);
+  width:8px;height:16px;background:rgba(255,255,255,0.2);border-radius:4px 4px 0 0;
+}
+.ritual-bottle-label{
+  width:60px;text-align:center;
+}
+.ritual-bottle-label span{
+  display:block;font-size:7px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);
+}
+.ritual-bottle-drops{
+  display:flex;gap:8px;align-items:flex-end;
+}
+.ritual-drop{
+  width:8px;height:12px;background:rgba(196,168,130,0.5);
+  border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+.ritual-content{
+  padding:80px 70px;background:#111;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.ritual-eyebrow{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--w-accent);margin-bottom:16px;}
+.ritual-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(32px,4vw,52px);font-weight:300;color:#fff;line-height:1.1;
+  margin-bottom:20px;
+}
+.ritual-title em{font-style:italic;color:var(--w-gold);}
+.ritual-rule{width:50px;height:1px;background:var(--w-accent);margin-bottom:24px;}
+.ritual-body{font-size:13px;font-weight:300;color:rgba(255,255,255,0.5);line-height:2;margin-bottom:32px;}
+.ritual-steps{display:flex;flex-direction:column;gap:20px;}
+.ritual-step{display:flex;gap:20px;align-items:flex-start;}
+.ritual-step-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;font-weight:300;color:rgba(255,255,255,0.15);
+  line-height:1;flex-shrink:0;width:32px;
+}
+.ritual-step-text{}
+.ritual-step-title{
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,0.7);margin-bottom:4px;
+}
+.ritual-step-desc{font-size:11px;font-weight:300;color:rgba(255,255,255,0.35);line-height:1.7;}
+
+/* ─────────────────────────────────────────────
+   CART SIDEBAR
+───────────────────────────────────────────── */
+.cart-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.5);
+  z-index:2000;opacity:0;pointer-events:none;transition:opacity 0.3s;
+}
+.cart-overlay.open{opacity:1;pointer-events:all;}
+.cart-drawer{
+  position:fixed;top:0;right:0;bottom:0;width:420px;
+  background:#fff;z-index:2001;
+  transform:translateX(100%);transition:transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  display:flex;flex-direction:column;
+}
+.cart-drawer.open{transform:translateX(0);}
+.cart-header{
+  padding:32px 36px 24px;border-bottom:1px solid #f0f0f0;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.cart-header-title{
+  font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;
+}
+.cart-close{
+  width:36px;height:36px;border-radius:50%;border:1px solid #eee;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;cursor:pointer;color:#999;
+  transition:all 0.2s;background:transparent;
+}
+.cart-close:hover{background:#f5f5f5;color:#333;}
+.cart-items{flex:1;overflow-y:auto;padding:24px 36px;}
+.cart-empty{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  height:100%;text-align:center;gap:16px;
+}
+.cart-empty-icon{font-size:48px;opacity:0.2;}
+.cart-empty-text{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#bbb;}
+.cart-item-card{
+  display:flex;gap:16px;padding:20px 0;border-bottom:1px solid #f5f5f5;
+}
+.cart-item-img{
+  width:70px;height:90px;background:#f5f5f5;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:24px;
+}
+.cart-item-info{flex:1;}
+.cart-item-range{font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--w-accent);margin-bottom:4px;}
+.cart-item-name{font-family:'Cormorant Garamond',serif;font-size:16px;margin-bottom:4px;}
+.cart-item-price{font-size:14px;color:#777;font-weight:300;}
+.cart-item-remove{
+  font-size:12px;color:#ccc;cursor:pointer;align-self:flex-start;
+  background:transparent;border:none;padding:0;margin-top:4px;
+}
+.cart-item-remove:hover{color:var(--w-accent);}
+.cart-footer{padding:24px 36px 32px;border-top:1px solid #f0f0f0;}
+.cart-total-row{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:8px;
+}
+.cart-total-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#999;}
+.cart-total-value{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;}
+.cart-shipping-note{font-size:10px;color:#bbb;margin-bottom:24px;}
+.cart-checkout-btn{
+  width:100%;padding:16px;background:var(--w-text);color:#fff;
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  cursor:pointer;border:none;font-family:'Jost',sans-serif;
+  transition:background 0.3s;
+}
+.cart-checkout-btn:hover{background:var(--w-accent);}
+
+/* ─────────────────────────────────────────────
+   CHECKOUT MODAL
+───────────────────────────────────────────── */
+.checkout-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.7);
+  z-index:3000;opacity:0;pointer-events:none;transition:opacity 0.3s;
+  display:flex;align-items:center;justify-content:center;padding:20px;
+}
+.checkout-overlay.open{opacity:1;pointer-events:all;}
+.checkout-modal{
+  background:#fff;width:100%;max-width:880px;max-height:90vh;
+  overflow-y:auto;position:relative;
+  transform:translateY(20px);transition:transform 0.4s ease;
+}
+.checkout-overlay.open .checkout-modal{transform:translateY(0);}
+.checkout-close{
+  position:absolute;top:24px;right:24px;
+  width:36px;height:36px;border-radius:50%;border:1px solid #eee;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;cursor:pointer;color:#999;background:#fff;z-index:10;
+}
+.checkout-close:hover{background:#f5f5f5;}
+
+/* Progress bar */
+.checkout-progress{
+  display:flex;border-bottom:1px solid #f0f0f0;
+}
+.checkout-step-tab{
+  flex:1;padding:24px 20px;text-align:center;
+  font-size:9px;letter-spacing:3px;text-transform:uppercase;
+  color:#ccc;position:relative;cursor:default;
+}
+.checkout-step-tab.active{color:var(--w-text);}
+.checkout-step-tab.done{color:var(--w-accent);}
+.checkout-step-tab.active::after{
+  content:'';position:absolute;bottom:-1px;left:0;right:0;
+  height:2px;background:var(--w-text);
+}
+.checkout-step-num{
+  display:block;
+  width:24px;height:24px;border-radius:50%;
+  border:1px solid #eee;font-size:10px;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 8px;color:#ccc;
+}
+.checkout-step-tab.active .checkout-step-num{
+  background:var(--w-text);color:#fff;border-color:var(--w-text);
+}
+.checkout-step-tab.done .checkout-step-num{
+  background:var(--w-accent);color:#fff;border-color:var(--w-accent);
+}
+
+.checkout-body{padding:48px 60px;}
+.checkout-panel{display:none;}
+.checkout-panel.active{display:block;}
+.checkout-panel-title{
+  font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;
+  margin-bottom:8px;
+}
+.checkout-panel-sub{font-size:11px;font-weight:300;color:#999;margin-bottom:36px;letter-spacing:0.5px;}
+
+/* Form */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;}
+.form-row.single{grid-template-columns:1fr;}
+.form-row.triple{grid-template-columns:1fr 1fr 1fr;}
+.form-group{display:flex;flex-direction:column;gap:8px;}
+.form-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#999;font-weight:300;}
+.form-input{
+  padding:14px 16px;border:1px solid #eee;
+  font-size:13px;font-weight:300;color:var(--w-text);
+  font-family:'Jost',sans-serif;outline:none;
+  transition:border-color 0.2s;background:#fff;
+}
+.form-input:focus{border-color:var(--w-text);}
+.form-input::placeholder{color:#ccc;}
+.form-select{
+  padding:14px 16px;border:1px solid #eee;
+  font-size:13px;font-weight:300;color:var(--w-text);
+  font-family:'Jost',sans-serif;outline:none;
+  appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 16px center;
+  transition:border-color 0.2s;
+}
+.form-select:focus{border-color:var(--w-text);}
+
+/* Shipping options */
+.shipping-options{display:flex;flex-direction:column;gap:12px;margin-bottom:28px;}
+.shipping-option{
+  display:flex;align-items:center;gap:16px;
+  padding:16px 20px;border:1px solid #eee;cursor:pointer;
+  transition:border-color 0.2s;
+}
+.shipping-option.selected{border-color:var(--w-text);}
+.shipping-radio{
+  width:16px;height:16px;border-radius:50%;border:1px solid #ccc;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.shipping-option.selected .shipping-radio{border-color:var(--w-text);}
+.shipping-radio::after{
+  content:'';display:none;width:8px;height:8px;
+  border-radius:50%;background:var(--w-text);
+}
+.shipping-option.selected .shipping-radio::after{display:block;}
+.shipping-info{flex:1;}
+.shipping-name{font-size:12px;font-weight:400;color:var(--w-text);}
+.shipping-time{font-size:10px;color:#999;font-weight:300;margin-top:2px;}
+.shipping-price{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--w-text);}
+
+/* Payment */
+.payment-methods{display:flex;gap:12px;margin-bottom:28px;}
+.payment-method{
+  flex:1;padding:16px;border:1px solid #eee;
+  text-align:center;cursor:pointer;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#999;
+  transition:all 0.2s;
+}
+.payment-method.selected{border-color:var(--w-text);color:var(--w-text);}
+.payment-method-icon{font-size:20px;display:block;margin-bottom:8px;}
+.card-brand-icons{display:flex;gap:8px;margin-bottom:20px;align-items:center;}
+.card-brand{
+  width:40px;height:26px;border:1px solid #eee;border-radius:3px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:8px;letter-spacing:1px;color:#999;
+}
+.secure-badge{
+  display:flex;align-items:center;gap:8px;margin-top:16px;
+  font-size:10px;color:#bbb;
+}
+
+/* Order summary sidebar */
+.checkout-layout{display:grid;grid-template-columns:1fr 340px;gap:60px;}
+.checkout-main{}
+.checkout-summary{
+  border-left:1px solid #f0f0f0;padding-left:40px;
+}
+.summary-title{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#999;margin-bottom:24px;}
+.summary-item{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  padding:12px 0;border-bottom:1px solid #f5f5f5;gap:16px;
+}
+.summary-item-name{font-size:12px;font-weight:300;color:var(--w-text);flex:1;}
+.summary-item-price{font-size:12px;color:#777;}
+.summary-totals{padding-top:16px;}
+.summary-row{
+  display:flex;justify-content:space-between;
+  font-size:11px;font-weight:300;color:#999;margin-bottom:8px;
+}
+.summary-row.total{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:400;color:var(--w-text);
+  border-top:1px solid #eee;padding-top:16px;margin-top:8px;
+}
+
+/* Checkout navigation */
+.checkout-nav{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-top:40px;padding-top:32px;border-top:1px solid #f0f0f0;
+}
+.checkout-back{
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:#999;cursor:pointer;background:transparent;border:none;
+  font-family:'Jost',sans-serif;
+  transition:color 0.2s;
+}
+.checkout-back:hover{color:var(--w-text);}
+.checkout-next{
+  padding:14px 48px;background:var(--w-text);color:#fff;
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  cursor:pointer;border:none;font-family:'Jost',sans-serif;
+  transition:background 0.3s;
+}
+.checkout-next:hover{background:var(--w-accent);}
+.checkout-next.final{background:var(--w-accent);}
+.checkout-next.final:hover{background:#4a0f1a;}
+
+/* Success screen */
+.success-screen{text-align:center;padding:60px 0;}
+.success-icon{font-size:64px;margin-bottom:24px;}
+.success-title{
+  font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;
+  color:var(--w-text);margin-bottom:12px;
+}
+.success-title em{font-style:italic;color:var(--w-accent);}
+.success-sub{font-size:12px;font-weight:300;color:#999;line-height:1.9;max-width:480px;margin:0 auto 36px;}
+.success-order-num{
+  font-size:9px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--w-accent);margin-bottom:36px;
+}
+.success-continue{
+  padding:14px 48px;border:1px solid var(--w-text);
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  cursor:pointer;color:var(--w-text);background:transparent;
+  font-family:'Jost',sans-serif;transition:all 0.3s;
+}
+.success-continue:hover{background:var(--w-text);color:#fff;}
+
+/* ─────────────────────────────────────────────
+   TESTIMONIALS
+───────────────────────────────────────────── */
+.testimonials{padding:100px 60px;background:#fafafa;}
+.testimonials-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:60px;
+}
+.testimonial-card{
+  background:#fff;padding:40px 36px;
+  border-top:2px solid transparent;transition:border-color 0.3s;
+}
+.testimonial-card:hover{border-top-color:var(--w-accent);}
+.testimonial-stars{color:var(--w-gold);font-size:14px;margin-bottom:20px;}
+.testimonial-text{
+  font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;
+  font-style:italic;color:var(--w-text);line-height:1.7;margin-bottom:24px;
+}
+.testimonial-author{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#bbb;}
+.testimonial-range-tag{
+  display:inline-block;margin-top:8px;
+  font-size:8px;letter-spacing:2px;text-transform:uppercase;
+  padding:4px 10px;background:#f5f5f5;color:#999;
+}
+
+/* ─────────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────── */
+.footer{
+  background:#0a0a0a;padding:80px 60px 40px;
+  border-top:1px solid #1a1a1a;
+}
+.footer-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;
+  margin-bottom:60px;
+}
+.footer-brand{}
+.footer-logo{
+  font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;
+  letter-spacing:3px;color:#fff;margin-bottom:8px;
+}
+.footer-tagline{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#444;margin-bottom:20px;}
+.footer-body{font-size:11px;font-weight:300;color:#555;line-height:1.9;max-width:280px;margin-bottom:28px;}
+.footer-social{display:flex;gap:12px;}
+.social-btn{
+  width:34px;height:34px;border:1px solid #222;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;color:#666;cursor:pointer;
+  transition:all 0.2s;background:transparent;
+}
+.social-btn:hover{border-color:#666;color:#fff;}
+.footer-col-title{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#444;margin-bottom:20px;font-weight:300;}
+.footer-col-links{display:flex;flex-direction:column;gap:12px;}
+.footer-link{font-size:12px;font-weight:300;color:#555;cursor:pointer;transition:color 0.2s;}
+.footer-link:hover{color:#fff;}
+.footer-bottom{
+  border-top:1px solid #1a1a1a;padding-top:32px;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:16px;
+}
+.footer-copy{font-size:10px;font-weight:300;color:#333;letter-spacing:1px;}
+.footer-legal{display:flex;gap:24px;}
+.footer-legal-link{font-size:10px;font-weight:300;color:#333;cursor:pointer;letter-spacing:1px;}
+.footer-legal-link:hover{color:#fff;}
+
+/* ─────────────────────────────────────────────
+   NOTIFICATIONS
+───────────────────────────────────────────── */
+.notification{
+  position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--w-text);color:#fff;
+  padding:14px 32px;z-index:5000;
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  opacity:0;transition:all 0.3s;pointer-events:none;
+  white-space:nowrap;
+}
+.notification.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* ─────────────────────────────────────────────
+   ANIMATIONS
+───────────────────────────────────────────── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:translateY(0);}
+}
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+@keyframes scrollPulse{
+  0%,100%{opacity:0.3;height:50px;}
+  50%{opacity:1;height:70px;}
+}
+@keyframes drip{
+  0%{top:-10px;opacity:0;}
+  20%{opacity:1;}
+  100%{top:110%;opacity:0;}
+}
+.fade-in-up{
+  opacity:0;transform:translateY(24px);
+  transition:opacity 0.7s ease,transform 0.7s ease;
+}
+.fade-in-up.visible{opacity:1;transform:translateY(0);}
+
+/* ─────────────────────────────────────────────
+   MOBILE NAV MENU
+───────────────────────────────────────────── */
+.mobile-menu{
+  position:fixed;inset:0;background:rgba(10,10,10,0.97);
+  z-index:1500;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:32px;
+  opacity:0;pointer-events:none;transition:opacity 0.3s;
+}
+.mobile-menu.open{opacity:1;pointer-events:all;}
+.mobile-menu a{
+  font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;
+  letter-spacing:2px;color:rgba(255,255,255,0.7);
+  transition:color 0.2s;
+}
+.mobile-menu a:hover{color:#fff;}
+.mobile-menu-close{
+  position:absolute;top:28px;right:28px;
+  font-size:24px;color:#666;cursor:pointer;background:transparent;border:none;
+}
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────── */
+@media(max-width:1024px){
+  .nav{padding:20px 32px;}
+  .nav.scrolled{padding:14px 32px;}
+  .section{padding:80px 32px;}
+  .women-hero,.men-hero,.kids-hero{padding:80px 32px 60px;gap:40px;}
+  .about-grid{gap:60px;}
+  .products-section,.men-section-dark{padding:60px 32px;}
+  .bundle-card{padding:40px 32px;gap:32px;}
+  .footer{padding:60px 32px 32px;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:40px;}
+  .checkout-body{padding:40px 40px;}
+  .checkout-layout{grid-template-columns:1fr;}
+  .checkout-summary{border-left:none;padding-left:0;border-top:1px solid #f0f0f0;padding-top:32px;}
+}
+
+@media(max-width:768px){
+  .nav-links,.nav-cart{display:none;}
+  .nav-mobile-toggle{display:flex;}
+  .women-hero,.men-hero,.kids-hero{
+    grid-template-columns:1fr;min-height:auto;
+    padding:100px 24px 60px;
+  }
+  .women-hero::before,.men-hero::before{display:none;}
+  .women-hero-image{display:none;}
+  .products-grid,.men-product-row,.kids-products-grid{grid-template-columns:1fr;}
+  .steps-grid{grid-template-columns:1fr;}
+  .step-card{border-right:none;border-bottom:1px solid #eee;}
+  .bundle-card{grid-template-columns:1fr;}
+  .bundle-visual{display:none;}
+  .ritual-inner{grid-template-columns:1fr;}
+  .ritual-visual{min-height:300px;}
+  .about-grid{grid-template-columns:1fr;}
+  .about-visual{display:none;}
+  .testimonials-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr;}
+  .range-tab{padding:16px 20px;font-size:9px;}
+  .checkout-body{padding:32px 24px;}
+  .form-row{grid-template-columns:1fr;}
+  .form-row.triple{grid-template-columns:1fr 1fr;}
+  .checkout-progress{overflow-x:auto;}
+  .hero-title{font-size:clamp(42px,12vw,72px);}
+}
+
+/* ─────────────────────────────────────────────
+   LOGO SVG INLINE
+───────────────────────────────────────────── */
+.nc-logo-svg{
+  display:flex;flex-direction:column;align-items:flex-start;gap:2px;
+}
+.nc-wordmark{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:500;letter-spacing:4px;
+  color:inherit;text-transform:uppercase;
+}
+.nc-sub{
+  font-family:'Jost',sans-serif;font-size:6px;
+  letter-spacing:7px;text-transform:uppercase;
+  color:inherit;opacity:0.5;
+}
+
+/* Range-specific highlights */
+.men-section-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+}
+.men-highlight{
+  background:var(--m-deep);padding:40px 32px;
+  border-bottom:2px solid transparent;
+  transition:border-color 0.3s;
+}
+.men-highlight:hover{border-bottom-color:var(--m-accent);}
+.men-highlight-icon{font-size:32px;margin-bottom:16px;opacity:0.5;}
+.men-highlight-title{
+  font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;
+  color:var(--m-text);margin-bottom:8px;
+}
+.men-highlight-desc{font-size:11px;font-weight:300;color:rgba(232,220,200,0.4);line-height:1.8;}
+
+.kids-section{padding:80px 60px;background:var(--k-bg);}
+.kids-section-title{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,46px);font-weight:300;
+  color:var(--k-text);margin-bottom:8px;
+}
+.kids-section-title em{font-style:italic;color:var(--k-accent);}
+.kids-accessories-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px;
+}
+.kids-accessory{
+  background:#fff;padding:28px 20px;text-align:center;
+  transition:all 0.3s;cursor:pointer;border-radius:2px;
+}
+.kids-accessory:hover{background:var(--k-blush);}
+.kids-acc-icon{font-size:36px;margin-bottom:12px;}
+.kids-acc-name{
+  font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:400;
+  color:var(--k-text);margin-bottom:4px;
+}
+.kids-acc-price{font-size:12px;color:var(--k-accent);}
+
+/* Quantity selector */
+.qty-selector{
+  display:flex;align-items:center;gap:0;border:1px solid #eee;width:fit-content;
+}
+.qty-btn{
+  width:32px;height:32px;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:16px;color:#777;background:transparent;border:none;
+  transition:background 0.2s;
+}
+.qty-btn:hover{background:#f5f5f5;}
+.qty-num{
+  width:36px;text-align:center;font-size:13px;
+  border-left:1px solid #eee;border-right:1px solid #eee;
+  padding:0 4px;line-height:32px;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════ -->
+<nav class="nav" id="mainNav">
+  <div class="nc-logo-svg nav-logo">
+    <span class="nc-wordmark">Noir Collective</span>
+    <span class="nc-sub">Hair Care</span>
+  </div>
+  <div class="nav-links">
+    <a href="#ranges">Shop</a>
+    <a href="#about">Our Story</a>
+    <a href="#ritual">The Ritual</a>
+    <a href="#testimonials">Reviews</a>
+  </div>
+  <button class="nav-cart" id="cartBtn">
+    <svg width="18" height="16" viewBox="0 0 18 16" fill="none" style="opacity:0.7">
+      <path d="M1 1h2.5l2 8h8l2-6H5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="8" cy="14.5" r="1" fill="currentColor"/>
+      <circle cx="13" cy="14.5" r="1" fill="currentColor"/>
+    </svg>
+    Cart
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
+  <div class="nav-mobile-toggle" id="mobileToggle">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="#ranges" onclick="closeMobile()">Shop</a>
+  <a href="#about" onclick="closeMobile()">Our Story</a>
+  <a href="#ritual" onclick="closeMobile()">The Ritual</a>
+  <a href="#testimonials" onclick="closeMobile()">Reviews</a>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg-texture"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-line-left"></div>
+  <div class="hero-line-right"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Rooted in truth. Grown in nature.</div>
+    <h1 class="hero-title">
+      Your crown<br>
+      <em>always</em><br>
+      <span class="line2">was enough.</span>
+    </h1>
+    <p class="hero-sub">Botanical hair care crafted for natural, coily &amp; curly textures</p>
+    <div class="hero-actions">
+      <a href="#ranges" class="btn-primary">Explore Collections</a>
+      <a href="#about" class="btn-outline">Our Story</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     RANGE NAVIGATION
+═══════════════════════════════════════════ -->
+<div class="range-nav" id="ranges">
+  <button class="range-tab active" onclick="switchRange('women',this)">The Crown</button>
+  <button class="range-tab men-tab" onclick="switchRange('men',this)">The Sovereign</button>
+  <button class="range-tab kids-tab" onclick="switchRange('kids',this)">Little Crowns</button>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     WOMEN'S RANGE
+═══════════════════════════════════════════ -->
+<div class="range-panel active" id="panel-women">
+
+  <!-- Hero -->
+  <div class="women-hero">
+    <div class="women-hero-text fade-in-up">
+      <div class="women-hero-eyebrow">The Crown Range · Women</div>
+      <h2 class="women-hero-title">
+        Balance.<br>Nourish.<br><em>Preserve.</em>
+      </h2>
+      <p class="women-hero-body">
+        A 3-step ritual designed around the true needs of natural, coily and curly hair. Every formula speaks directly to your texture — not around it.
+      </p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <button class="btn-primary" onclick="addToCart('The Complete Crown Ritual','R500','women')">Shop the Ritual — R500</button>
+      </div>
+    </div>
+    <div class="women-hero-image fade-in-up" style="animation-delay:0.2s">
+      <div class="product-img-placeholder tall" style="background:linear-gradient(160deg,#f5f0f0,#ede5e5);">
+        <div class="product-img-inner tall" style="gap:0;">
+          <div style="width:60px;height:130px;background:rgba(255,255,255,0.8);border-radius:4px 4px 2px 2px;display:flex;align-items:center;justify-content:center;border:1px solid #ddd;">
+            <div style="text-align:center;padding:8px;">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:8px;letter-spacing:2px;color:#999;text-transform:uppercase;">Amari Aura</div>
+              <div style="width:30px;height:30px;background:#1a1a1a;border-radius:50%;margin:6px auto;display:flex;align-items:center;justify-content:center;">
+                <div style="font-size:12px;">💧</div>
+              </div>
+              <div style="font-size:7px;letter-spacing:1px;color:#777;text-transform:uppercase;">Crown<br>Scalp Tonic</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product-img-placeholder" style="background:linear-gradient(160deg,#f0ece8,#e8e0d8);">
+        <div class="product-img-inner">
+          <div style="width:55px;height:80px;background:rgba(196,168,130,0.3);border-radius:30px 30px 4px 4px;border:1px solid rgba(196,168,130,0.5);display:flex;align-items:center;justify-content:center;">
+            <div style="font-size:20px;">✦</div>
+          </div>
+          <div style="font-size:7px;letter-spacing:2px;color:#999;text-transform:uppercase;text-align:center;">Crown<br>Vitality Oil</div>
+        </div>
+      </div>
+      <div class="product-img-placeholder" style="background:linear-gradient(160deg,#f5f3ee,#ede8e0);">
+        <div class="product-img-inner">
+          <div style="width:65px;height:55px;background:rgba(255,255,255,0.8);border-radius:4px;border:1px solid #ddd;display:flex;align-items:center;justify-content:center;">
+            <div style="font-size:20px;">🌿</div>
+          </div>
+          <div style="font-size:7px;letter-spacing:2px;color:#999;text-transform:uppercase;text-align:center;">Crown<br>Seal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Products -->
+  <div class="products-section">
+    <div class="products-header fade-in-up">
+      <div>
+        <div class="section-eyebrow">The Crown Range</div>
+        <h2 class="section-title">Every drop, <em>intentional.</em></h2>
+      </div>
+      <div style="font-size:11px;font-weight:300;color:#999;max-width:320px;line-height:1.8;">
+        Formulated for the moisture needs of 3c–4c hair types. No compromise.
+      </div>
+    </div>
+    <div class="products-grid">
+      <!-- Product 1 -->
+      <div class="product-card fade-in-up" onclick="openProductDetail('Crown Scalp Tonic')">
+        <div class="product-img-area">
+          <div class="product-visual">
+            <div style="width:55px;height:120px;background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(240,240,240,0.9));border-radius:4px 4px 2px 2px;border:1px solid #ddd;display:flex;align-items:center;justify-content:center;position:relative;">
+              <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);width:10px;height:14px;background:#333;border-radius:4px 4px 0 0;"></div>
+              <div style="text-align:center;padding:4px;">
+                <div style="font-size:7px;letter-spacing:1px;color:#888;text-transform:uppercase;font-family:'Jost',sans-serif;">Crown<br>Scalp Tonic</div>
+              </div>
+            </div>
+          </div>
+          <div class="product-card-overlay">
+            <button class="overlay-btn" onclick="event.stopPropagation();addToCart('Crown Scalp Tonic','R150','women')">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-range-tag">Step 1 — Balance</div>
+          <div class="product-name">Crown Scalp Tonic</div>
+          <div class="product-desc">A concentrated botanical infusion that hydrates, resets and prepares your scalp for nourishment. Rosemary, nettle leaf and tea tree work together to soothe and stimulate.</div>
+          <div class="product-footer">
+            <div class="product-price">R150</div>
+            <button class="add-btn" onclick="event.stopPropagation();addToCart('Crown Scalp Tonic','R150','women')">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card fade-in-up" style="animation-delay:0.1s">
+        <div class="product-img-area" style="background:#f5f0e8;">
+          <div class="product-visual">
+            <div style="width:52px;height:110px;background:linear-gradient(180deg,rgba(196,140,60,0.15),rgba(160,110,30,0.1));border-radius:28px 28px 4px 4px;border:1px solid rgba(196,168,130,0.4);display:flex;align-items:center;justify-content:center;position:relative;">
+              <div style="position:absolute;top:-20px;left:50%;transform:translateX(-50%);width:12px;height:20px;background:var(--w-gold);border-radius:50%;"></div>
+              <div style="text-align:center;padding:4px;">
+                <div style="font-size:7px;letter-spacing:1px;color:#a07040;text-transform:uppercase;font-family:'Jost',sans-serif;">Crown<br>Vitality<br>Oil</div>
+              </div>
+            </div>
+          </div>
+          <div class="product-card-overlay">
+            <button class="overlay-btn" onclick="event.stopPropagation();addToCart('Crown Vitality Oil','R190','women')">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-range-tag">Step 2 — Nourish</div>
+          <div class="product-name">Crown Vitality Oil</div>
+          <div class="product-desc">A lightweight botanical elixir of argan, baobab and jojoba that enhances softness and sheen without heaviness. Absorbs effortlessly. Encourages refinement.</div>
+          <div class="product-footer">
+            <div class="product-price">R190</div>
+            <button class="add-btn" onclick="addToCart('Crown Vitality Oil','R190','women')">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card fade-in-up" style="animation-delay:0.2s">
+        <div class="product-img-area" style="background:#f5f2ec;">
+          <div class="product-visual">
+            <div style="width:72px;height:62px;background:linear-gradient(180deg,rgba(255,255,255,0.95),rgba(240,235,225,0.95));border-radius:4px;border:1px solid #ddd;display:flex;align-items:center;justify-content:center;position:relative;">
+              <div style="position:absolute;top:-16px;left:0;right:0;height:16px;background:var(--w-gold);border-radius:2px 2px 0 0;opacity:0.7;"></div>
+              <div style="text-align:center;padding:4px;">
+                <div style="font-size:7px;letter-spacing:1px;color:#888;text-transform:uppercase;font-family:'Jost',sans-serif;">Crown Seal</div>
+              </div>
+            </div>
+          </div>
+          <div class="product-card-overlay">
+            <button class="overlay-btn" onclick="event.stopPropagation();addToCart('Crown Seal','R190','women')">Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-range-tag">Step 3 — Lock</div>
+          <div class="product-name">Crown Seal</div>
+          <div class="product-desc">A rich shea and mango butter balm that preserves hydration and protects against dryness. The final layer in a disciplined maintenance ritual. For locs and natural styles.</div>
+          <div class="product-footer">
+            <div class="product-price">R190</div>
+            <button class="add-btn" onclick="addToCart('Crown Seal','R190','women')">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bundle -->
+    <div class="bundle-card fade-in-up">
+      <div>
+        <div class="bundle-eyebrow">Best Value · Complete System</div>
+        <h3 class="bundle-title">The Complete<br><em>Crown Ritual</em></h3>
+        <p class="bundle-desc">All three steps. One ritual. Everything your crown needs to balance, nourish and be preserved — in one intentional collection.</p>
+        <div class="bundle-price-row">
+          <div class="bundle-price">R500</div>
+          <div class="bundle-was">R530</div>
+          <div class="bundle-savings">Save R30</div>
+        </div>
+        <div class="bundle-items">
+          <div class="bundle-item">Crown Scalp Tonic (100ml) — Balance</div>
+          <div class="bundle-item">Crown Vitality Oil (100ml) — Nourish</div>
+          <div class="bundle-item">Crown Seal (27g) — Lock</div>
+        </div>
+        <button class="btn-primary" onclick="addToCart('The Complete Crown Ritual','R500','women')">Add Ritual to Cart</button>
+      </div>
+      <div class="bundle-visual">
+        <div class="bv-product">
+          <div class="bv-bottle tall">
+            <div class="bv-label">Scalp Tonic</div>
+          </div>
+          <div class="bv-name">100ml</div>
+        </div>
+        <div class="bv-product">
+          <div class="bv-bottle" style="height:120px;width:60px;border-radius:20px 20px 4px 4px;">
+            <div class="bv-label">Vitality Oil</div>
+          </div>
+          <div class="bv-name">100ml</div>
+        </div>
+        <div class="bv-product">
+          <div class="bv-bottle short">
+            <div class="bv-label">Crown Seal</div>
+          </div>
+          <div class="bv-name">27g</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3-Step System -->
+  <div class="steps-section">
+    <div class="fade-in-up">
+      <div class="section-eyebrow">The System</div>
+      <h2 class="section-title">Three steps.<br><em>One ritual.</em></h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="steps-grid fade-in-up">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-phase">Balance</div>
+        <div class="step-title">Crown Scalp Tonic</div>
+        <p class="step-desc">Begin at the root. A concentrated botanical spray that rehydrates and resets the scalp environment. Removes buildup, soothes inflammation and prepares the follicle for nourishment.</p>
+        <div class="step-product-ref">Apply 2–3 times weekly</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-phase">Nourish</div>
+        <div class="step-title">Crown Vitality Oil</div>
+        <p class="step-desc">Follow with our lightweight elixir. Pressed from argan, baobab and jojoba, it penetrates the hair shaft to restore softness, reduce breakage and add a lasting natural sheen.</p>
+        <div class="step-product-ref">Apply to damp or dry hair</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-phase">Preserve</div>
+        <div class="step-title">Crown Seal</div>
+        <p class="step-desc">The final act. A butter balm that seals every layer of moisture, defines the curl and protects against environmental damage. Especially formulated for locs, twists and wash-and-go styles.</p>
+        <div class="step-product-ref">Seal on wash day &amp; between washes</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     MEN'S RANGE
+═══════════════════════════════════════════ -->
+<div class="range-panel" id="panel-men">
+  <div class="men-panel">
+
+    <div class="men-hero">
+      <div style="position:relative;z-index:1;" class="fade-in-up">
+        <div class="men-hero-eyebrow">The Sovereign Range · Men</div>
+        <h2 class="men-hero-title">A ritual built<br>for <em>sovereignty.</em></h2>
+        <p class="men-hero-body">Precision grooming for the man who understands that maintenance is mastery. Every product engineered for natural hair, scalp health and beard refinement.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <button style="padding:14px 44px;background:var(--m-accent);color:var(--m-bg);font-size:10px;letter-spacing:4px;text-transform:uppercase;font-weight:500;cursor:pointer;border:none;font-family:'Jost',sans-serif;transition:opacity 0.3s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'" onclick="addToCart('The Sovereign Set','R650','men')">Shop The Sovereign Set</button>
+        </div>
+      </div>
+      <div style="position:relative;z-index:1;" class="fade-in-up">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(182,144,87,0.15);padding:32px 24px;display:flex;flex-direction:column;gap:8px;">
+            <div style="font-size:32px;opacity:0.5;">🌿</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--m-text);">5 Products</div>
+            <div style="font-size:10px;letter-spacing:2px;color:rgba(232,220,200,0.4);text-transform:uppercase;">Crafted for men</div>
+          </div>
+          <div style="background:rgba(182,144,87,0.08);border:1px solid rgba(182,144,87,0.2);padding:32px 24px;display:flex;flex-direction:column;gap:8px;">
+            <div style="font-size:32px;opacity:0.5;">💎</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--m-accent);">Botanical</div>
+            <div style="font-size:10px;letter-spacing:2px;color:rgba(182,144,87,0.5);text-transform:uppercase;">All formulas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Men Products -->
+    <div class="men-section-dark">
+      <div class="fade-in-up">
+        <div class="men-section-eyebrow">The Sovereign Collection</div>
+        <h2 class="men-section-title">Built for the<br><em>disciplined man.</em></h2>
+        <div class="men-rule"></div>
+      </div>
+      <div class="men-product-row">
+        <!-- Reign Scalp Elixir -->
+        <div class="men-product-card fade-in-up">
+          <button class="men-add-btn" onclick="addToCart('Reign Scalp Elixir','R180','men')">+</button>
+          <div class="men-product-icon">🌱</div>
+          <div class="men-product-name">Reign Scalp Elixir</div>
+          <div class="men-product-desc">A potent scalp treatment infused with peppermint, cedarwood and black seed oil. Stimulates follicles, reduces dandruff and relieves tension. The foundation of a healthy crown.</div>
+          <div class="men-product-price">R180</div>
+        </div>
+        <!-- Sovereign Growth Oil -->
+        <div class="men-product-card fade-in-up" style="animation-delay:0.1s">
+          <button class="men-add-btn" onclick="addToCart('Sovereign Growth Oil','R220','men')">+</button>
+          <div class="men-product-icon">💧</div>
+          <div class="men-product-name">Sovereign Growth Oil</div>
+          <div class="men-product-desc">A rich blend of castor, Jamaican black castor and rosehip oils designed to fortify and accelerate natural hair growth. Heavyweight nourishment, refined absorption.</div>
+          <div class="men-product-price">R220</div>
+        </div>
+        <!-- Obsidian Edge Butter -->
+        <div class="men-product-card fade-in-up" style="animation-delay:0.2s">
+          <button class="men-add-btn" onclick="addToCart('Obsidian Edge Butter','R160','men')">+</button>
+          <div class="men-product-icon">✦</div>
+          <div class="men-product-name">Obsidian Edge Butter</div>
+          <div class="men-product-desc">A firm-hold, non-flake edge control made with aloe vera and beeswax. Lays edges without stiffness. Defines fades, waves and natural lines without stripping moisture.</div>
+          <div class="men-product-price">R160</div>
+        </div>
+      </div>
+      <div class="men-product-row" style="margin-top:2px;">
+        <!-- Patriarch Beard Oil -->
+        <div class="men-product-card fade-in-up">
+          <button class="men-add-btn" onclick="addToCart('Patriarch Beard Oil','R200','men')">+</button>
+          <div class="men-product-icon">🔥</div>
+          <div class="men-product-name">Patriarch Beard Oil</div>
+          <div class="men-product-desc">Argan, sweet almond and sandalwood infused beard oil that softens coarse beard texture, eliminates beardruff and leaves a subtle, refined fragrance. Ritual for the jaw.</div>
+          <div class="men-product-price">R200</div>
+        </div>
+        <!-- Crown Wrap Serum -->
+        <div class="men-product-card fade-in-up" style="animation-delay:0.1s">
+          <button class="men-add-btn" onclick="addToCart('Crown Wrap Serum','R175','men')">+</button>
+          <div class="men-product-icon">🌊</div>
+          <div class="men-product-name">Crown Wrap Serum</div>
+          <div class="men-product-desc">Designed for du-rags, headwraps and wave maintenance. A lightweight serum that trains texture, defines wave patterns and adds moisture compression during wrap sessions.</div>
+          <div class="men-product-price">R175</div>
+        </div>
+        <!-- The Sovereign Set -->
+        <div class="men-product-card fade-in-up" style="animation-delay:0.2s;border:1px solid rgba(182,144,87,0.3);">
+          <button class="men-add-btn" onclick="addToCart('The Sovereign Set','R650','men')" style="border-color:var(--m-accent);color:var(--m-accent);">+</button>
+          <div class="men-product-icon" style="opacity:1;">👑</div>
+          <div class="men-product-name" style="color:var(--m-accent);">The Sovereign Set</div>
+          <div class="men-product-desc" style="color:rgba(232,220,200,0.55);">All five products. The complete grooming system for the man who takes his crown seriously. Bundled, refined, intentional.</div>
+          <div style="display:flex;align-items:baseline;gap:12px;">
+            <div class="men-product-price">R650</div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3);text-decoration:line-through;">R935</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Men Highlights -->
+    <div class="men-section-dark" style="padding-top:0;">
+      <div class="men-section-grid">
+        <div class="men-highlight fade-in-up">
+          <div class="men-highlight-icon">🧴</div>
+          <div class="men-highlight-title">Scalp First</div>
+          <p class="men-highlight-desc">Every product line starts with scalp health. A clean, nourished scalp is the only foundation for real hair growth.</p>
+        </div>
+        <div class="men-highlight fade-in-up" style="animation-delay:0.1s">
+          <div class="men-highlight-icon">🌿</div>
+          <div class="men-highlight-title">100% Botanical</div>
+          <p class="men-highlight-desc">No mineral oil. No sulfates. No silence on ingredients. Every formula is transparent and rooted in nature.</p>
+        </div>
+        <div class="men-highlight fade-in-up" style="animation-delay:0.2s">
+          <div class="men-highlight-icon">⚡</div>
+          <div class="men-highlight-title">Built for 4C</div>
+          <p class="men-highlight-desc">Not adapted from other formulas. Engineered specifically for the density, porosity and moisture needs of 4a–4c hair.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     KIDS RANGE
+═══════════════════════════════════════════ -->
+<div class="range-panel" id="panel-kids">
+  <div class="kids-panel">
+
+    <div class="kids-hero">
+      <div class="fade-in-up">
+        <div class="kids-hero-eyebrow">Little Crowns · Kids' Range</div>
+        <h2 class="kids-hero-title">Little crowns,<br><em>big magic.</em></h2>
+        <p class="kids-hero-body">Gentle, tear-free formulas made for the tender curls, coils and locs of your little ones. Teaching the joy of hair care from the very beginning.</p>
+        <button style="padding:14px 44px;background:var(--k-accent);color:#fff;font-size:10px;letter-spacing:4px;text-transform:uppercase;border:none;cursor:pointer;font-family:'Jost',sans-serif;" onclick="addToCart('Little Crowns Starter Kit','R420','kids')">Shop Little Crowns</button>
+      </div>
+      <div class="fade-in-up" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div style="background:#fff;padding:24px;text-align:center;border-radius:2px;box-shadow:0 4px 20px rgba(194,120,90,0.1);">
+          <div style="font-size:36px;margin-bottom:8px;">🌸</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--k-text);">Tear-Free</div>
+          <div style="font-size:9px;letter-spacing:2px;color:var(--k-accent);text-transform:uppercase;margin-top:4px;">All formulas</div>
+        </div>
+        <div style="background:var(--k-sand);padding:24px;text-align:center;border-radius:2px;">
+          <div style="font-size:36px;margin-bottom:8px;">🌿</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--k-text);">Plant-Based</div>
+          <div style="font-size:9px;letter-spacing:2px;color:var(--k-accent);text-transform:uppercase;margin-top:4px;">Safe &amp; gentle</div>
+        </div>
+        <div style="background:var(--k-blush);padding:24px;text-align:center;border-radius:2px;grid-column:span 2;">
+          <div style="font-size:36px;margin-bottom:8px;">💛</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--k-text);">Ages 2 to 12</div>
+          <div style="font-size:9px;letter-spacing:2px;color:var(--k-accent);text-transform:uppercase;margin-top:4px;">Formulated for young hair</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kids Products -->
+    <div class="kids-section">
+      <div class="fade-in-up">
+        <div style="font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--k-accent);margin-bottom:12px;">Little Crowns Products</div>
+        <h2 class="kids-section-title">Products that make<br><em>hair time fun.</em></h2>
+      </div>
+      <div class="kids-products-grid" style="margin-top:40px;">
+        <!-- Tender Roots Scalp Milk -->
+        <div class="kids-product-card fade-in-up">
+          <div class="kids-icon">🍼</div>
+          <div class="kids-product-tag">Scalp Care</div>
+          <div class="kids-product-name">Tender Roots Scalp Milk</div>
+          <div class="kids-product-desc">An ultra-gentle, fragrance-light scalp milk that soothes cradle cap, dryness and flaking on little scalps. Oat and chamomile — nothing more, nothing less.</div>
+          <div class="kids-product-footer">
+            <div class="kids-product-price">R135</div>
+            <button class="kids-add-btn" onclick="addToCart('Tender Roots Scalp Milk','R135','kids')">+</button>
+          </div>
+        </div>
+        <!-- Petal Soft Detangling Spray -->
+        <div class="kids-product-card fade-in-up" style="animation-delay:0.1s">
+          <div class="kids-icon">🌸</div>
+          <div class="kids-product-tag">Detangling</div>
+          <div class="kids-product-name">Petal Soft Detangling Spray</div>
+          <div class="kids-product-desc">Tear-free. Tangle-free. Fuss-free. A light mist that loosens knots and softens coils for easy comb-through on wash days and in-between days alike.</div>
+          <div class="kids-product-footer">
+            <div class="kids-product-price">R120</div>
+            <button class="kids-add-btn" onclick="addToCart('Petal Soft Detangling Spray','R120','kids')">+</button>
+          </div>
+        </div>
+        <!-- Bloom Curl Custard -->
+        <div class="kids-product-card fade-in-up" style="animation-delay:0.2s">
+          <div class="kids-icon">🌻</div>
+          <div class="kids-product-tag">Definition</div>
+          <div class="kids-product-name">Bloom Curl Custard</div>
+          <div class="kids-product-desc">A soft-hold curl defining custard made with aloe vera and shea butter. Defines patterns, reduces frizz and keeps little curls bouncy and moisturised all day.</div>
+          <div class="kids-product-footer">
+            <div class="kids-product-price">R145</div>
+            <button class="kids-add-btn" onclick="addToCart('Bloom Curl Custard','R145','kids')">+</button>
+          </div>
+        </div>
+        <!-- Little Crowns Starter Kit -->
+        <div class="kids-product-card fade-in-up" style="animation-delay:0.1s;background:var(--k-blush);">
+          <div class="kids-icon">🎀</div>
+          <div class="kids-product-tag">Best Value</div>
+          <div class="kids-product-name">Little Crowns Starter Kit</div>
+          <div class="kids-product-desc">Scalp Milk + Detangling Spray + Bloom Curl Custard + a wide-tooth comb. Everything you need for your little one's hair care journey, from the very first wash.</div>
+          <div class="kids-product-footer">
+            <div class="kids-product-price" style="color:var(--k-accent);">R420</div>
+            <button class="kids-add-btn" onclick="addToCart('Little Crowns Starter Kit','R420','kids')">+</button>
+          </div>
+        </div>
+        <!-- Sunshine Growth Serum -->
+        <div class="kids-product-card fade-in-up" style="animation-delay:0.2s">
+          <div class="kids-icon">☀️</div>
+          <div class="kids-product-tag">Growth & Nourishment</div>
+          <div class="kids-product-name">Sunshine Growth Serum</div>
+          <div class="kids-product-desc">A gentle daily serum with rosehip and sweet almond oil to support healthy growth, retain length and keep hair strong. Formulated for ages 2–12.</div>
+          <div class="kids-product-footer">
+            <div class="kids-product-price">R150</div>
+            <button class="kids-add-btn" onclick="addToCart('Sunshine Growth Serum','R150','kids')">+</button>
+          </div>
+        </div>
+        <!-- Cloud Nine Leave-In -->
+        <div class="kids-product-card fade-in-up" style="animation-delay:0.3s">
+          <div class="kids-icon">☁️</div>
+          <div class="kids-product-tag">Moisture</div>
+          <div class="kids-product-name">Cloud Nine Leave-In</div>
+          <div class="kids-product-desc">A feather-light, moisturising leave-in cream that hydrates without stickiness. Keeps natural styles fresh between wash days and smells like a gentle garden breeze.</div>
+          <div class="kids-product-footer">
+            <div class="kids-product-price">R130</div>
+            <button class="kids-add-btn" onclick="addToCart('Cloud Nine Leave-In','R130','kids')">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accessories -->
+      <div style="margin-top:60px;">
+        <div style="font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--k-accent);margin-bottom:12px;">Accessories</div>
+        <h3 class="kids-section-title" style="font-size:clamp(24px,3vw,38px);"><em>The fun stuff.</em></h3>
+        <div class="kids-accessories-grid">
+          <div class="kids-accessory">
+            <div class="kids-acc-icon">🪮</div>
+            <div class="kids-acc-name">Crown Comb Set</div>
+            <div class="kids-acc-price">R85</div>
+          </div>
+          <div class="kids-accessory">
+            <div class="kids-acc-icon">🎀</div>
+            <div class="kids-acc-name">Satin Hair Bands</div>
+            <div class="kids-acc-price">R55</div>
+          </div>
+          <div class="kids-accessory">
+            <div class="kids-acc-icon">✨</div>
+            <div class="kids-acc-name">Crown Clips Set</div>
+            <div class="kids-acc-price">R70</div>
+          </div>
+          <div class="kids-accessory">
+            <div class="kids-acc-icon">🌈</div>
+            <div class="kids-acc-name">Satin Bonnet</div>
+            <div class="kids-acc-price">R95</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     THE RITUAL (CLOSE-UP SECTION)
+═══════════════════════════════════════════ -->
+<div class="ritual-section" id="ritual">
+  <div class="ritual-inner">
+    <div class="ritual-visual">
+      <div class="ritual-droplets">
+        <div class="droplet"></div>
+        <div class="droplet"></div>
+        <div class="droplet"></div>
+      </div>
+      <div class="ritual-bottle-display" style="position:relative;z-index:2;">
+        <div style="text-align:center;margin-bottom:8px;">
+          <div style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(196,168,130,0.5);">The Oil Ritual</div>
+        </div>
+        <div style="position:relative;">
+          <div class="ritual-bottle">
+            <div style="text-align:center;padding:8px;">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.3);">Crown<br>Vitality<br>Oil</div>
+            </div>
+          </div>
+          <!-- Drops falling -->
+          <div style="position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:3px;height:3px;background:rgba(196,168,130,0.6);border-radius:50%;"></div>
+            <div style="width:4px;height:6px;background:rgba(196,168,130,0.4);border-radius:0 0 50% 50%;"></div>
+          </div>
+        </div>
+        <div style="margin-top:50px;text-align:center;">
+          <div style="width:80px;height:4px;background:linear-gradient(to right,transparent,rgba(196,168,130,0.3),transparent);margin:0 auto;border-radius:2px;"></div>
+          <div style="font-size:8px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-top:8px;">Scalp Application</div>
+        </div>
+        <!-- Hands silhouette suggestion -->
+        <div style="width:120px;height:60px;background:rgba(30,18,14,0.6);border-radius:60px 60px 0 0;border-top:1px solid rgba(196,168,130,0.1);display:flex;align-items:center;justify-content:center;">
+          <div style="font-size:9px;letter-spacing:2px;color:rgba(255,255,255,0.2);text-transform:uppercase;">Crown</div>
+        </div>
+      </div>
+    </div>
+    <div class="ritual-content">
+      <div class="ritual-eyebrow">The Application Ritual</div>
+      <h2 class="ritual-title">Applied with<br><em>intention.</em></h2>
+      <div class="ritual-rule"></div>
+      <p class="ritual-body">Your scalp is the soil. Your hair, the harvest. Every drop of the Crown Vitality Oil is worked in at the root — section by section, with care, with purpose.</p>
+      <div class="ritual-steps">
+        <div class="ritual-step">
+          <div class="ritual-step-num">I</div>
+          <div class="ritual-step-text">
+            <div class="ritual-step-title">Section the hair</div>
+            <div class="ritual-step-desc">Part into 4 quadrants. Work from the nape forward for maximum coverage.</div>
+          </div>
+        </div>
+        <div class="ritual-step">
+          <div class="ritual-step-num">II</div>
+          <div class="ritual-step-text">
+            <div class="ritual-step-title">Apply the tonic first</div>
+            <div class="ritual-step-desc">Spray Crown Scalp Tonic directly onto the scalp. Massage in for 60 seconds.</div>
+          </div>
+        </div>
+        <div class="ritual-step">
+          <div class="ritual-step-num">III</div>
+          <div class="ritual-step-text">
+            <div class="ritual-step-title">Seal with the oil</div>
+            <div class="ritual-step-desc">Apply 4–6 drops of Crown Vitality Oil to palms, distribute through mid-lengths and ends. Then seal with Crown Seal butter balm.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ABOUT SECTION
+═══════════════════════════════════════════ -->
+<section class="about-section" id="about">
+  <div class="about-grid">
+    <div class="about-visual fade-in-up">
+      <div class="about-img-frame">
+        <div class="about-img-inner">
+          <div style="width:60px;height:1px;background:rgba(196,168,130,0.2);margin-bottom:24px;"></div>
+          <div class="about-img-quote">"She didn't know what the problem was. She just knew that her grandmother's hands always fixed it."</div>
+          <div style="width:40px;height:1px;background:rgba(107,26,42,0.4);margin:20px 0;"></div>
+          <div class="about-img-attribution">The story behind Noir Collective</div>
+        </div>
+      </div>
+      <div class="about-accent-box">
+        <div class="about-accent-box-text">Born in a grandmother's kitchen</div>
+      </div>
+    </div>
+    <div class="about-text fade-in-up" style="animation-delay:0.2s;">
+      <div class="about-eyebrow">Our Founding Story</div>
+      <h2 class="about-title">She was told<br>her hair <em>didn't grow.</em></h2>
+      <div class="about-rule"></div>
+      <p class="about-body">
+        Growing up, our founder <strong>Amara</strong> absorbed what so many Black girls absorb — the quiet lie that our hair is difficult. Stubborn. A problem to be managed. Every product in the shops seemed designed to flatten it, relax it, make it <em>behave</em> like something it was never meant to be.
+      </p>
+      <p class="about-body">
+        Television, school, beauty counters — none of it reflected her texture. None of it understood the difference between <strong>4c hair and the hair on a shampoo label</strong>. She believed, for years, that her hair simply didn't grow. That breakage was just her nature.
+      </p>
+      <p class="about-body">
+        Then came a summer at her grandmother's house in the Eastern Cape. Her grandmother — who had never used a single product that came in a plastic bottle with a foreign name — sat her down. She mixed shea with herbs, pressed oils she had rendered herself, moved through Amara's hair with intention and patience and <strong>deep, quiet knowledge</strong>.
+      </p>
+      <p class="about-body">
+        Within months, Amara's hair was thriving. Not because anything had changed about her hair. But because for the first time, <strong>her hair was being cared for in the way it was always meant to be.</strong> The problem was never the hair. It was everything around it.
+      </p>
+      <p class="about-body">
+        Noir Collective was born from that realisation — and from the belief that <strong>every Black woman, man and child deserves products that were built for them, not adapted for them.</strong> Rooted in nature. Rooted in truth.
+      </p>
+      <div class="about-signature">
+        <div class="signature-name">Amara</div>
+        <div class="signature-title">Founder, Noir Collective</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════════ -->
+<section class="testimonials" id="testimonials">
+  <div class="fade-in-up" style="text-align:center;">
+    <div class="section-eyebrow" style="text-align:center;">What our community says</div>
+    <h2 class="section-title" style="text-align:center;">Real crowns,<br><em>real results.</em></h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card fade-in-up">
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-text">"I have never in my 28 years of life seen my hair retain this much length. Three months on the Crown Ritual and I finally believe my hair grows."</div>
+      <div class="testimonial-author">Lerato M. — Johannesburg</div>
+      <div class="testimonial-range-tag">Crown Range</div>
+    </div>
+    <div class="testimonial-card fade-in-up" style="animation-delay:0.1s">
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-text">"The Patriarch Beard Oil is the first product that has actually softened my beard without leaving it greasy. My partner has also claimed it as her own."</div>
+      <div class="testimonial-author">Sipho D. — Durban</div>
+      <div class="testimonial-range-tag">Sovereign Range</div>
+    </div>
+    <div class="testimonial-card fade-in-up" style="animation-delay:0.2s">
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-text">"My daughter used to dread wash days. Now she asks for them. The Petal Soft Spray changed everything — no more tears, no more fights. Just curls."</div>
+      <div class="testimonial-author">Nomsa K. — Cape Town</div>
+      <div class="testimonial-range-tag">Little Crowns</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">Noir Collective</div>
+      <div class="footer-tagline">Hair Care Rooted in Truth</div>
+      <p class="footer-body">Botanical hair care formulated for the true needs of natural, coily and curly hair. Born in a grandmother's kitchen. Built for every crown.</p>
+      <div class="footer-social">
+        <button class="social-btn">𝕏</button>
+        <button class="social-btn">in</button>
+        <button class="social-btn">▶</button>
+        <button class="social-btn">◎</button>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Shop</div>
+      <div class="footer-col-links">
+        <span class="footer-link" onclick="switchRange('women',document.querySelectorAll('.range-tab')[0])">The Crown Range</span>
+        <span class="footer-link" onclick="switchRange('men',document.querySelectorAll('.range-tab')[1])">The Sovereign Range</span>
+        <span class="footer-link" onclick="switchRange('kids',document.querySelectorAll('.range-tab')[2])">Little Crowns</span>
+        <span class="footer-link">Bundles & Sets</span>
+        <span class="footer-link">Accessories</span>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <div class="footer-col-links">
+        <span class="footer-link" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Our Story</span>
+        <span class="footer-link">Ingredients</span>
+        <span class="footer-link">Sustainability</span>
+        <span class="footer-link">Press</span>
+        <span class="footer-link">Stockists</span>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Help</div>
+      <div class="footer-col-links">
+        <span class="footer-link">Shipping & Returns</span>
+        <span class="footer-link">Hair Type Guide</span>
+        <span class="footer-link">FAQ</span>
+        <span class="footer-link">Contact Us</span>
+        <span class="footer-link">WhatsApp Support</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Noir Collective. All rights reserved. South Africa.</div>
+    <div class="footer-legal">
+      <span class="footer-legal-link">Privacy Policy</span>
+      <span class="footer-legal-link">Terms of Service</span>
+      <span class="footer-legal-link">Cookie Policy</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════
+     CART SIDEBAR
+═══════════════════════════════════════════ -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <div class="cart-header-title">Your Bag</div>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <div class="cart-empty-icon">🛍</div>
+      <div class="cart-empty-text">Your bag is empty</div>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total-row">
+      <div class="cart-total-label">Total</div>
+      <div class="cart-total-value" id="cartTotal">R0</div>
+    </div>
+    <div class="cart-shipping-note">Free delivery on orders over R500 within South Africa</div>
+    <button class="cart-checkout-btn" onclick="openCheckout()">Proceed to Checkout</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     CHECKOUT MODAL
+═══════════════════════════════════════════ -->
+<div class="checkout-overlay" id="checkoutOverlay">
+  <div class="checkout-modal" id="checkoutModal">
+    <button class="checkout-close" onclick="closeCheckout()">✕</button>
+
+    <!-- Progress -->
+    <div class="checkout-progress">
+      <div class="checkout-step-tab active" id="ctab-1">
+        <span class="checkout-step-num">1</span>Shipping
+      </div>
+      <div class="checkout-step-tab" id="ctab-2">
+        <span class="checkout-step-num">2</span>Delivery
+      </div>
+      <div class="checkout-step-tab" id="ctab-3">
+        <span class="checkout-step-num">3</span>Payment
+      </div>
+      <div class="checkout-step-tab" id="ctab-4">
+        <span class="checkout-step-num">4</span>Review
+      </div>
+    </div>
+
+    <div class="checkout-body">
+
+      <!-- STEP 1: Shipping Details -->
+      <div class="checkout-panel active" id="cpanel-1">
+        <div class="checkout-layout">
+          <div class="checkout-main">
+            <div class="checkout-panel-title">Shipping Details</div>
+            <div class="checkout-panel-sub">Where shall we send your crown?</div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-input" placeholder="Amara" id="firstName">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-input" placeholder="Dlamini" id="lastName">
+              </div>
+            </div>
+            <div class="form-row single">
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-input" placeholder="amara@example.com" id="email">
+              </div>
+            </div>
+            <div class="form-row single">
+              <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-input" placeholder="+27 82 000 0000" id="phone">
+              </div>
+            </div>
+            <div class="form-row single">
+              <div class="form-group">
+                <label class="form-label">Street Address</label>
+                <input type="text" class="form-input" placeholder="123 Mandela Drive" id="address">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">City / Town</label>
+                <input type="text" class="form-input" placeholder="Johannesburg" id="city">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Province</label>
+                <select class="form-select" id="province">
+                  <option value="">Select province</option>
+                  <option>Gauteng</option>
+                  <option>Western Cape</option>
+                  <option>KwaZulu-Natal</option>
+                  <option>Eastern Cape</option>
+                  <option>Limpopo</option>
+                  <option>Mpumalanga</option>
+                  <option>North West</option>
+                  <option>Free State</option>
+                  <option>Northern Cape</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Postal Code</label>
+                <input type="text" class="form-input" placeholder="2000" id="postalCode">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Country</label>
+                <select class="form-select">
+                  <option>South Africa</option>
+                  <option>Zimbabwe</option>
+                  <option>Namibia</option>
+                  <option>Botswana</option>
+                  <option>Mozambique</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="checkout-nav">
+              <button class="checkout-back" onclick="closeCheckout()">← Back to Cart</button>
+              <button class="checkout-next" onclick="nextCheckoutStep(2)">Continue to Delivery →</button>
+            </div>
+          </div>
+          <div class="checkout-summary" id="orderSummary1"></div>
+        </div>
+      </div>
+
+      <!-- STEP 2: Delivery Method -->
+      <div class="checkout-panel" id="cpanel-2">
+        <div class="checkout-layout">
+          <div class="checkout-main">
+            <div class="checkout-panel-title">Delivery Method</div>
+            <div class="checkout-panel-sub">Choose how your order reaches you.</div>
+
+            <div class="shipping-options">
+              <div class="shipping-option selected" onclick="selectShipping(this,'R65')">
+                <div class="shipping-radio"></div>
+                <div class="shipping-info">
+                  <div class="shipping-name">Standard Delivery</div>
+                  <div class="shipping-time">3–5 business days · Courier Guy / RAM</div>
+                </div>
+                <div class="shipping-price">R65</div>
+              </div>
+              <div class="shipping-option" onclick="selectShipping(this,'R120')">
+                <div class="shipping-radio"></div>
+                <div class="shipping-info">
+                  <div class="shipping-name">Express Delivery</div>
+                  <div class="shipping-time">1–2 business days · Priority handling</div>
+                </div>
+                <div class="shipping-price">R120</div>
+              </div>
+              <div class="shipping-option" onclick="selectShipping(this,'Free')">
+                <div class="shipping-radio"></div>
+                <div class="shipping-info">
+                  <div class="shipping-name">Free Delivery</div>
+                  <div class="shipping-time">Available on orders over R500 · 3–5 days</div>
+                </div>
+                <div class="shipping-price" style="color:var(--k-accent);">Free</div>
+              </div>
+              <div class="shipping-option" onclick="selectShipping(this,'Collect')">
+                <div class="shipping-radio"></div>
+                <div class="shipping-info">
+                  <div class="shipping-name">Click & Collect</div>
+                  <div class="shipping-time">Available in Johannesburg, Cape Town, Durban</div>
+                </div>
+                <div class="shipping-price">Free</div>
+              </div>
+            </div>
+
+            <div style="margin-top:24px;">
+              <div class="form-label" style="margin-bottom:12px;">Add a note for your order (optional)</div>
+              <textarea class="form-input" rows="3" placeholder="Gift message, special instructions..." style="resize:vertical;width:100%;"></textarea>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:10px;margin-top:20px;padding:16px;background:#fafafa;border:1px solid #f0f0f0;">
+              <input type="checkbox" id="giftWrap" style="width:16px;height:16px;accent-color:var(--w-accent);">
+              <label for="giftWrap" style="font-size:12px;font-weight:300;color:#777;cursor:pointer;">Add gift wrapping (+R35) — Includes tissue paper, ribbon and personalised card</label>
+            </div>
+
+            <div class="checkout-nav">
+              <button class="checkout-back" onclick="prevCheckoutStep(1)">← Back</button>
+              <button class="checkout-next" onclick="nextCheckoutStep(3)">Continue to Payment →</button>
+            </div>
+          </div>
+          <div class="checkout-summary" id="orderSummary2"></div>
+        </div>
+      </div>
+
+      <!-- STEP 3: Payment -->
+      <div class="checkout-panel" id="cpanel-3">
+        <div class="checkout-layout">
+          <div class="checkout-main">
+            <div class="checkout-panel-title">Payment</div>
+            <div class="checkout-panel-sub">All transactions are secure and encrypted.</div>
+
+            <div class="payment-methods">
+              <div class="payment-method selected" onclick="selectPayment(this,'card')">
+                <span class="payment-method-icon">💳</span>Card
+              </div>
+              <div class="payment-method" onclick="selectPayment(this,'eft')">
+                <span class="payment-method-icon">🏦</span>EFT
+              </div>
+              <div class="payment-method" onclick="selectPayment(this,'payflex')">
+                <span class="payment-method-icon">⚡</span>PayFlex
+              </div>
+              <div class="payment-method" onclick="selectPayment(this,'snapscan')">
+                <span class="payment-method-icon">📱</span>SnapScan
+              </div>
+            </div>
+
+            <!-- Card payment -->
+            <div id="payment-card">
+              <div class="card-brand-icons">
+                <div class="card-brand">VISA</div>
+                <div class="card-brand">MC</div>
+                <div class="card-brand">AMEX</div>
+                <div class="card-brand" style="font-size:7px;">MAESTRO</div>
+              </div>
+              <div class="form-row single">
+                <div class="form-group">
+                  <label class="form-label">Cardholder Name</label>
+                  <input type="text" class="form-input" placeholder="AMARA DLAMINI">
+                </div>
+              </div>
+              <div class="form-row single">
+                <div class="form-group">
+                  <label class="form-label">Card Number</label>
+                  <input type="text" class="form-input" placeholder="0000  0000  0000  0000" maxlength="19">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Expiry Date</label>
+                  <input type="text" class="form-input" placeholder="MM / YY" maxlength="7">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">CVV</label>
+                  <input type="text" class="form-input" placeholder="000" maxlength="4">
+                </div>
+              </div>
+              <div class="secure-badge">
+                <span>🔒</span>
+                <span>Your payment is secured by 256-bit SSL encryption. We do not store card details.</span>
+              </div>
+            </div>
+
+            <!-- EFT -->
+            <div id="payment-eft" style="display:none;padding:24px;background:#fafafa;border:1px solid #f0f0f0;">
+              <div style="font-size:11px;font-weight:300;color:#666;line-height:2;">
+                <strong style="font-weight:500;font-size:12px;display:block;margin-bottom:12px;">Bank Transfer Details</strong>
+                Bank: First National Bank<br>
+                Account Name: Noir Collective (Pty) Ltd<br>
+                Account Number: 621 000 0000 0<br>
+                Branch Code: 250655<br>
+                Reference: Your order number (provided after checkout)
+              </div>
+              <div style="margin-top:16px;font-size:10px;color:#bbb;">Orders are dispatched within 24 hours of payment confirmation.</div>
+            </div>
+
+            <!-- PayFlex -->
+            <div id="payment-payflex" style="display:none;padding:24px;background:#fafafa;border:1px solid #f0f0f0;">
+              <div style="font-size:12px;font-weight:300;color:#666;line-height:2;">
+                Pay in 4 interest-free instalments. No credit check required.<br>
+                You will be redirected to PayFlex to complete your payment.
+              </div>
+            </div>
+
+            <!-- SnapScan -->
+            <div id="payment-snapscan" style="display:none;padding:24px;background:#fafafa;border:1px solid #f0f0f0;text-align:center;">
+              <div style="font-size:80px;margin-bottom:12px;">📱</div>
+              <div style="font-size:12px;font-weight:300;color:#666;">Open the SnapScan app and scan the QR code that will appear on the next screen.</div>
+            </div>
+
+            <!-- Coupon -->
+            <div style="margin-top:24px;display:flex;gap:12px;">
+              <input type="text" class="form-input" placeholder="Discount code" style="flex:1;">
+              <button style="padding:14px 24px;border:1px solid #1a1a1a;font-size:10px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;background:transparent;color:#1a1a1a;font-family:'Jost',sans-serif;white-space:nowrap;">Apply</button>
+            </div>
+
+            <div class="checkout-nav">
+              <button class="checkout-back" onclick="prevCheckoutStep(2)">← Back</button>
+              <button class="checkout-next" onclick="nextCheckoutStep(4)">Review Order →</button>
+            </div>
+          </div>
+          <div class="checkout-summary" id="orderSummary3"></div>
+        </div>
+      </div>
+
+      <!-- STEP 4: Review -->
+      <div class="checkout-panel" id="cpanel-4">
+        <div class="checkout-layout">
+          <div class="checkout-main">
+            <div class="checkout-panel-title">Review & Confirm</div>
+            <div class="checkout-panel-sub">Please review your order before placing it.</div>
+
+            <div id="reviewContent" style="border:1px solid #f0f0f0;padding:28px;margin-bottom:24px;">
+              <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#bbb;margin-bottom:16px;">Order Summary</div>
+              <div id="reviewItems"></div>
+            </div>
+
+            <div style="border:1px solid #f0f0f0;padding:24px;margin-bottom:16px;">
+              <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#bbb;margin-bottom:12px;">Shipping to</div>
+              <div id="reviewAddress" style="font-size:13px;font-weight:300;color:#666;line-height:1.8;"></div>
+            </div>
+
+            <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:28px;">
+              <input type="checkbox" id="termsCheck" style="width:16px;height:16px;margin-top:2px;accent-color:var(--w-accent);">
+              <label for="termsCheck" style="font-size:11px;font-weight:300;color:#777;cursor:pointer;line-height:1.7;">I agree to the <u>Terms of Service</u> and <u>Privacy Policy</u>. I understand that all sales are subject to Noir Collective's returns policy.</label>
+            </div>
+
+            <div class="checkout-nav">
+              <button class="checkout-back" onclick="prevCheckoutStep(3)">← Back</button>
+              <button class="checkout-next final" onclick="placeOrder()">Place Order ✦</button>
+            </div>
+          </div>
+          <div class="checkout-summary" id="orderSummary4"></div>
+        </div>
+      </div>
+
+      <!-- STEP 5: Success -->
+      <div class="checkout-panel" id="cpanel-5">
+        <div class="success-screen">
+          <div class="success-icon">✦</div>
+          <h2 class="success-title">Your crown is<br><em>on its way.</em></h2>
+          <div class="success-order-num" id="successOrderNum">Order #NC-2026-00001</div>
+          <p class="success-sub">
+            Thank you for your order. A confirmation has been sent to your email. Your Noir Collective products will be lovingly packed and dispatched within 1–2 business days.
+          </p>
+          <button class="success-continue" onclick="closeCheckout();closeCart();">Continue Shopping</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Notification -->
+<div class="notification" id="notification"></div>
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════ -->
+<script>
+// ── NAV SCROLL ──
+window.addEventListener('scroll',()=>{
+  const nav=document.getElementById('mainNav');
+  if(window.scrollY>60) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+// ── MOBILE NAV ──
+document.getElementById('mobileToggle').onclick=()=>document.getElementById('mobileMenu').classList.add('open');
+document.getElementById('mobileClose').onclick=closeMobile;
+function closeMobile(){document.getElementById('mobileMenu').classList.remove('open');}
+
+// ── RANGE TABS ──
+function switchRange(range,btn){
+  document.querySelectorAll('.range-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.range-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('panel-'+range).classList.add('active');
+  btn.classList.add('active');
+  document.getElementById('ranges').scrollIntoView({behavior:'smooth'});
+  // Trigger animations
+  setTimeout(()=>{
+    document.querySelectorAll('.fade-in-up').forEach(el=>{
+      el.classList.remove('visible');
+      void el.offsetWidth;
+    });
+    observeElements();
+  },100);
+}
+
+// ── SCROLL ANIMATIONS ──
+function observeElements(){
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+  },{threshold:0.1});
+  document.querySelectorAll('.fade-in-up').forEach(el=>observer.observe(el));
+}
+document.addEventListener('DOMContentLoaded',observeElements);
+
+// ── CART STATE ──
+let cart=[];
+
+function addToCart(name,price,range){
+  const existing=cart.find(i=>i.name===name);
+  if(existing){existing.qty++;} else {
+    cart.push({name,price,range,qty:1});
+  }
+  updateCart();
+  showNotification('Added to bag — '+name);
+  document.getElementById('cartCount').textContent=cart.reduce((a,i)=>a+i.qty,0);
+}
+
+function removeFromCart(index){
+  cart.splice(index,1);
+  updateCart();
+  document.getElementById('cartCount').textContent=cart.reduce((a,i)=>a+i.qty,0);
+}
+
+function updateCart(){
+  const container=document.getElementById('cartItems');
+  const footer=document.getElementById('cartFooter');
+  if(cart.length===0){
+    container.innerHTML='<div class="cart-empty"><div class="cart-empty-icon">🛍</div><div class="cart-empty-text">Your bag is empty</div></div>';
+    footer.style.display='none';
+    return;
+  }
+  footer.style.display='block';
+  const rangeColors={women:'var(--w-accent)',men:'var(--m-accent)',kids:'var(--k-accent)'};
+  container.innerHTML=cart.map((item,i)=>`
+    <div class="cart-item-card">
+      <div class="cart-item-img" style="background:${item.range==='women'?'#f5f0f0':item.range==='men'?'#111418':'#fdf8f5'};">
+        ${item.range==='women'?'💧':item.range==='men'?'🌿':'🌸'}
+      </div>
+      <div class="cart-item-info">
+        <div class="cart-item-range" style="color:${rangeColors[item.range]||'var(--w-accent)'}">
+          ${item.range==='women'?'The Crown':item.range==='men'?'The Sovereign':'Little Crowns'}
+        </div>
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-price">${item.price} × ${item.qty}</div>
+      </div>
+      <button class="cart-item-remove" onclick="removeFromCart(${i})">Remove</button>
+    </div>
+  `).join('');
+  const total=cart.reduce((sum,item)=>{
+    const val=parseInt(item.price.replace('R',''))||0;
+    return sum+val*item.qty;
+  },0);
+  document.getElementById('cartTotal').textContent='R'+total;
+}
+
+function openCart(){
+  document.getElementById('cartOverlay').classList.add('open');
+  document.getElementById('cartDrawer').classList.add('open');
+}
+function closeCart(){
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.getElementById('cartDrawer').classList.remove('open');
+}
+document.getElementById('cartBtn').onclick=openCart;
+
+// ── NOTIFICATIONS ──
+function showNotification(msg){
+  const n=document.getElementById('notification');
+  n.textContent=msg;n.classList.add('show');
+  setTimeout(()=>n.classList.remove('show'),2800);
+}
+
+// ── CHECKOUT ──
+let currentCheckoutStep=1;
+let selectedShipping='R65';
+let selectedPayment='card';
+
+function openCheckout(){
+  if(cart.length===0){showNotification('Add items to your bag first');return;}
+  closeCart();
+  document.getElementById('checkoutOverlay').classList.add('open');
+  currentCheckoutStep=1;
+  renderCheckoutStep(1);
+  updateOrderSummaries();
+}
+function closeCheckout(){
+  document.getElementById('checkoutOverlay').classList.remove('open');
+}
+
+function nextCheckoutStep(step){
+  currentCheckoutStep=step;
+  renderCheckoutStep(step);
+  updateOrderSummaries();
+  document.getElementById('checkoutModal').scrollTop=0;
+}
+function prevCheckoutStep(step){
+  currentCheckoutStep=step;
+  renderCheckoutStep(step);
+  document.getElementById('checkoutModal').scrollTop=0;
+}
+
+function renderCheckoutStep(step){
+  for(let i=1;i<=5;i++){
+    const panel=document.getElementById('cpanel-'+i);
+    const tab=document.getElementById('ctab-'+i);
+    if(panel) panel.classList.toggle('active',i===step);
+    if(tab){
+      tab.classList.remove('active','done');
+      if(i===step) tab.classList.add('active');
+      else if(i<step) tab.classList.add('done');
+    }
+  }
+  if(step===4) populateReview();
+}
+
+function updateOrderSummaries(){
+  const total=cart.reduce((s,i)=>{const v=parseInt(i.price.replace('R',''))||0;return s+v*i.qty;},0);
+  const shippingVal=selectedShipping==='Free'||selectedShipping==='Collect'?0:parseInt(selectedShipping.replace('R',''))||65;
+  const grandTotal=total+shippingVal;
+  const html=`
+    <div class="summary-title">Order Summary</div>
+    ${cart.map(i=>`
+      <div class="summary-item">
+        <div class="summary-item-name">${i.name} ${i.qty>1?'×'+i.qty:''}</div>
+        <div class="summary-item-price">${i.price}</div>
+      </div>
+    `).join('')}
+    <div class="summary-totals">
+      <div class="summary-row"><span>Subtotal</span><span>R${total}</span></div>
+      <div class="summary-row"><span>Shipping</span><span>${shippingVal===0?'Free':'R'+shippingVal}</span></div>
+      <div class="summary-row total"><span>Total</span><span>R${grandTotal}</span></div>
+    </div>
+  `;
+  ['1','2','3','4'].forEach(n=>{const el=document.getElementById('orderSummary'+n);if(el)el.innerHTML=html;});
+}
+
+function selectShipping(el,price){
+  document.querySelectorAll('.shipping-option').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedShipping=price;
+  updateOrderSummaries();
+}
+
+function selectPayment(el,method){
+  document.querySelectorAll('.payment-method').forEach(m=>m.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedPayment=method;
+  ['card','eft','payflex','snapscan'].forEach(m=>{
+    const el=document.getElementById('payment-'+m);
+    if(el) el.style.display=m===method?'block':'none';
+  });
+}
+
+function populateReview(){
+  const total=cart.reduce((s,i)=>{const v=parseInt(i.price.replace('R',''))||0;return s+v*i.qty;},0);
+  const shippingVal=selectedShipping==='Free'||selectedShipping==='Collect'?0:parseInt(selectedShipping.replace('R',''))||65;
+  document.getElementById('reviewItems').innerHTML=`
+    ${cart.map(i=>`<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f5f5f5;font-size:13px;font-weight:300;color:#555;">
+      <span>${i.name} ${i.qty>1?'×'+i.qty:''}</span><span>${i.price}</span>
+    </div>`).join('')}
+    <div style="display:flex;justify-content:space-between;padding:16px 0 0;font-family:'Cormorant Garamond',serif;font-size:22px;">
+      <span>Total</span><span>R${total+shippingVal}</span>
+    </div>
+  `;
+  const fn=document.getElementById('firstName');
+  const ln=document.getElementById('lastName');
+  const city=document.getElementById('city');
+  const province=document.getElementById('province');
+  const address=document.getElementById('address');
+  document.getElementById('reviewAddress').innerHTML=`
+    ${fn&&fn.value?fn.value+' '+(ln?ln.value:''):'Your name'}<br>
+    ${address&&address.value?address.value:'Your address'}<br>
+    ${city&&city.value?city.value:'Your city'}${province&&province.value?', '+province.value:''}<br>
+    South Africa
+  `;
+}
+
+function placeOrder(){
+  const terms=document.getElementById('termsCheck');
+  if(!terms.checked){showNotification('Please agree to the terms first');return;}
+  const orderNum='NC-2026-'+String(Math.floor(Math.random()*90000)+10000);
+  document.getElementById('successOrderNum').textContent='Order #'+orderNum;
+  cart=[];
+  updateCart();
+  document.getElementById('cartCount').textContent='0';
+  nextCheckoutStep(5);
+  // Hide progress for success step
+  document.querySelectorAll('.checkout-step-tab').forEach(t=>t.style.display='none');
+}
+
+// ── CARD NUMBER FORMATTING ──
+document.addEventListener('input',e=>{
+  if(e.target.placeholder==='0000  0000  0000  0000'){
+    let v=e.target.value.replace(/\D/g,'').substring(0,16);
+    e.target.value=v.replace(/(.{4})/g,'$1  ').trim();
+  }
+});
+</script>
+</body>
+</html>
