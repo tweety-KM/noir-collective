@@ -127,7 +127,7 @@ noir-collective/
 No build steps required. Simply open the file in any browser:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/noir-collective.git
+git clone https://github.com/tweety-KM/noir-collective.git
 cd noir-collective
 open index.html
 ```
